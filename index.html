@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOGA Site - Transform Your Body & Mind</title>
+    <link href="yoga.css" rel="stylesheet">
+    <script src="yoga.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#home">
+                <div class="yoga-icon me-2">
+                <img src="image/1000465650.jpg" alt="logo" style="width: 45px; height: 45px;">
+                </div>
+                <span class="fw-bold fs-4">YOGA site</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fitness">Fitness</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#online-classes">Online Classes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-primary rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#registerModal">
+                        <i class="bi bi-person-plus me-1"></i>Register
+                    </button>
+                    <button class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="bi bi-person-circle me-2"></i>Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content auth-form">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">
+                        <i class="bi bi-person-circle me-2"></i>Login to Your Account
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">
+                                Remember me
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-light btn-lg w-100 mb-3">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                        </button>
+                        <div class="text-center">
+                            <a href="#" class="text-light text-decoration-none">Forgot your password?</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <p class="mb-0">Don't have an account? 
+                        <a href="#" class="text-light fw-bold" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#registerModal">Sign up here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content auth-form">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">
+                        <i class="bi bi-person-plus me-2"></i>Create Your Account
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="registerForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="registerFirstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="registerFirstName" placeholder="First name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="registerLastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="registerLastName" placeholder="Last name" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="registerEmail" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="registerEmail" placeholder="Enter your email" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="registerPhone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="registerPhone" placeholder="Enter your phone number">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="registerPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="registerPassword" placeholder="Create password" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="experienceLevel" class="form-label">Yoga Experience Level</label>
+                                <select class="form-select" id="experienceLevel" required>
+                                    <option value="">Select your level...</option>
+                                    <option value="beginner">Beginner (New to yoga)</option>
+                                    <option value="intermediate">Intermediate (1-3 years)</option>
+                                    <option value="advanced">Advanced (3+ years)</option>
+                                    <option value="instructor">Instructor/Teacher</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                    <label class="form-check-label" for="agreeTerms">
+                                        I agree to the <a href="#" class="text-light">Terms of Service</a> and <a href="#" class="text-light">Privacy Policy</a>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="subscribeNewsletter">
+                                    <label class="form-check-label" for="subscribeNewsletter">
+                                        Subscribe to our newsletter for yoga tips and updates
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-light btn-lg w-100 mt-4">
+                            <i class="bi bi-person-check me-2"></i>Create Account
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <p class="mb-0">Already have an account? 
+                        <a href="#" class="text-light fw-bold" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#loginModal">Login here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container h-100">
+            <div class="row align-items-center h-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="display-3 fw-bold mb-4" style="color: #333; line-height: 1.2;">
+                            Let your Breath Guide your Movement,
+                        </h1>
+                        <p class="lead mb-4" style="color: #555; font-size: 1.1rem;">
+                            Yoga is a holistic practice that harmonizes the body, mind, and spirit. It combines physical postures, breathing techniques, and meditation to improve health and inner peace. Join thousands of practitioners who have transformed their lives through our comprehensive yoga programs.
+                        </p>
+                        <div class="hero-buttons mb-4">
+                            <button class="btn btn-dark btn-lg rounded-pill px-5 me-3">Try for free</button>
+                            <button class="btn btn-outline-dark btn-lg rounded-pill px-4">View Classes</button>
+                        </div>
+                        <div class="livestream-info d-flex align-items-center">
+                            <span class="badge bg-warning rounded-pill me-2">🔴</span>
+                            <span style="color: #666;">Click out Livestream - Join 500+ Live Sessions Daily</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image text-center">
+                        <img src="image/WhatsApp Image 2025-08-11 at 9.35.44 PM.jpeg" 
+                             alt="Yoga practitioners in meditation pose" 
+                             class="img-fluid rounded-4 shadow-lg" 
+                             style="max-height: 500px; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold mb-3">About the Yoga Experience</h2>
+                <p class="lead text-muted mx-auto" style="max-width: 700px;">
+                    Yoga is a calming practice that brings harmony between body and mind. It helps improve flexibility, focus, and inner peace through mindful movement and breathing. Our experienced instructors guide you through ancient practices adapted for modern life.
+                </p>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="image/pexels-elly-fairytale-3822625.jpg" 
+                             class="card-img-top" 
+                             alt="Padmasana (Lotus Pose)" 
+                             style="height: 400px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Padmasana</h5>
+                            <p class="text-muted small">(Lotus Pose)</p>
+                            <p class="card-text">
+                                Padmasana is a classic seated yoga posture used for meditation and breathing practices. It promotes physical stability, calms the mind, and enhances inner awareness. Perfect for beginners and advanced practitioners alike.
+                            </p>
+                            <div class="mt-3">
+                                <span class="badge bg-primary me-1">Meditation</span>
+                                <span class="badge bg-success me-1">Flexibility</span>
+                                <span class="badge bg-info">Focus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="image/pexels-sasha-kim-8483420.jpg" 
+                             class="card-img-top" 
+                             alt="Sukhasana (Easy Pose)" 
+                             style="height: 400px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Sukhasana</h5>
+                            <p class="text-muted small">(Easy Pose)</p>
+                            <p class="card-text">
+                                Sukhasana is a simple cross-legged sitting posture used for meditation and breathing exercises. It encourages a straight spine, steady breath, and relaxed mind. Ideal for daily meditation practice.
+                            </p>
+                            <div class="mt-3">
+                                <span class="badge bg-primary me-1">Breathing</span>
+                                <span class="badge bg-success me-1">Posture</span>
+                                <span class="badge bg-info">Relaxation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="image/pexels-elly-fairytale-3822227.jpg" 
+                             class="card-img-top" 
+                             alt="Paschimottanasana (Seated Forward Bend)" 
+                             style="height: 400px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Paschimottanasana</h5>
+                            <p class="text-muted small">(Seated Forward Bend)</p>
+                            <p class="card-text">
+                                Paschimottanasana is a deep forward-bending pose that stretches the spine, hamstrings, and lower back. It helps relieve stress, improve digestion, and calm the mind while increasing flexibility.
+                            </p>
+                            <div class="mt-3">
+                                <span class="badge bg-primary me-1">Stretching</span>
+                                <span class="badge bg-success me-1">Digestion</span>
+                                <span class="badge bg-info">Stress Relief</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional About Content -->
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3 class="fw-bold mb-4">Why Choose Our Yoga Studio?</h3>
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill text-success me-3 mt-1"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Certified Instructors</h6>
+                                    <p class="text-muted mb-0">All our instructors are certified with 500+ hours of training and years of experience.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill text-success me-3 mt-1"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Small Class Sizes</h6>
+                                    <p class="text-muted mb-0">Maximum 15 students per class ensures personalized attention and proper guidance.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill text-success me-3 mt-1"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Flexible Scheduling</h6>
+                                    <p class="text-muted mb-0">Morning, afternoon, and evening classes available 7 days a week.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill text-success me-3 mt-1"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Modern Facilities</h6>
+                                    <p class="text-muted mb-0">State-of-the-art studio with premium equipment and peaceful ambiance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="image/c1eb2ce6-3503-499c-9f25-ac71c8320a0f.jpg" 
+                         alt="Modern yoga studio" 
+                         class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitness Section -->
+    <section id="fitness" class="fitness-section py-5" style="background-color: #fff;">
+        <div class="container">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6">
+                    <h2 class="display-4 fw-bold mb-4">Transform Your Body & Mind</h2>
+                    <p class="lead mb-4">
+                        Our fitness-focused yoga programs combine strength, flexibility, and mindfulness to help you achieve your wellness goals. Experience the perfect balance of physical challenge and mental clarity through our comprehensive fitness approach.
+                    </p>
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <div class="badge bg-success rounded-circle me-3" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                    ✓
+                                </div>
+                                <span>Strength Building</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <div class="badge bg-success rounded-circle me-3" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                    ✓
+                                </div>
+                                <span>Flexibility Training</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <div class="badge bg-success rounded-circle me-3" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                    ✓
+                                </div>
+                                <span>Balance & Stability</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <div class="badge bg-success rounded-circle me-3" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                    ✓
+                                </div>
+                                <span>Stress Relief</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg rounded-pill px-5">Start Your Journey</button>
+                </div>
+                <div class="col-lg-6">
+                    <img src="image/pexels-yankrukov-8436595.jpg" 
+                         alt="Yoga fitness class" 
+                         class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+
+            <!-- Fitness Programs -->
+            <div class="text-center mb-5">
+                <h3 class="fw-bold mb-3">Our Fitness Programs</h3>
+                <p class="lead text-muted">Choose from our variety of fitness-focused yoga programs designed for all levels</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-lightning-charge-fill text-warning mb-3" style="font-size: 3rem;"></i>
+                            <h5 class="card-title fw-bold">Power Yoga</h5>
+                            <p class="card-text">High-intensity vinyasa flow that builds strength, endurance, and flexibility. Perfect for those seeking a challenging workout.</p>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="bi bi-check text-success me-2"></i>60-minute sessions</li>
+                                <li><i class="bi bi-check text-success me-2"></i>Intermediate to Advanced</li>
+                                <li><i class="bi bi-check text-success me-2"></i>Strength & Cardio Focus</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-heart-pulse-fill text-danger mb-3" style="font-size: 3rem;"></i>
+                            <h5 class="card-title fw-bold">Yoga Sculpt</h5>
+                            <p class="card-text">Combines traditional yoga poses with light weights and cardio intervals for a full-body workout experience.</p>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="bi bi-check text-success me-2"></i>45-minute sessions</li>
+                                <li><i class="bi bi-check text-success me-2"></i>All Levels Welcome</li>
+                                <li><i class="bi bi-check text-success me-2"></i>Weights Provided</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-tree-fill text-success mb-3" style="font-size: 3rem;"></i>
+                            <h5 class="card-title fw-bold">Hatha Flow</h5>
+                            <p class="card-text">Gentle yet strengthening practice focusing on alignment, breathing, and building core stability.</p>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="bi bi-check text-success me-2"></i>75-minute sessions</li>
+                                <li><i class="bi bi-check text-success me-2"></i>Beginner Friendly</li>
+                                <li><i class="bi bi-check text-success me-2"></i>Alignment Focus</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Classes Section -->
+    <section id="online-classes" class="online-classes-section py-5">
+        <div class="container">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 order-lg-2">
+                    <img src="image/pexels-kampus-8173452.jpg" 
+                         alt="Online meditation group session" 
+                         class="img-fluid rounded-4 shadow-lg">
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <h2 class="display-4 fw-bold mb-3">Meditate Together online</h2>
+                    <p class="lead mb-4">Everything is Better when Shared, Including Meditation</p>
+                    <p class="mb-4">
+                        Meditation is a mindful practice that calms the mind and promotes inner peace. Through online sessions, people can connect virtually and meditate together from anywhere, making it accessible, flexible, and supportive. Join our global community of practitioners.
+                    </p>
+                    <div class="d-flex gap-3 mb-4">
+                        <button class="btn btn-dark btn-lg rounded-pill px-4">Join Now</button>
+                        <button class="btn btn-outline-light btn-lg rounded-pill px-4">Explore Sessions</button>
+                    </div>
+                    <div class="row g-3 text-center">
+                        <div class="col-4">
+                            <h4 class="fw-bold">500+</h4>
+                            <small>Daily Sessions</small>
+                        </div>
+                        <div class="col-4">
+                            <h4 class="fw-bold">50K+</h4>
+                            <small>Active Members</small>
+                        </div>
+                        <div class="col-4">
+                            <h4 class="fw-bold">24/7</h4>
+                            <small>Available</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Online Class Schedule -->
+            <div class="text-center mb-4">
+                <h3 class="fw-bold mb-3">Weekly Online Schedule</h3>
+                <p class="lead">Join live sessions or access recorded classes anytime</p>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light border-0">
+                        <div class="card-body text-center">
+                            <h6 class="fw-bold">Morning Flow</h6>
+                            <p class="mb-1">6:00 AM - 7:00 AM</p>
+                            <small class="text-muted">Monday to Friday</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light border-0">
+                        <div class="card-body text-center">
+                            <h6 class="fw-bold">Lunch Break Yoga</h6>
+                            <p class="mb-1">12:00 PM - 12:30 PM</p>
+                            <small class="text-muted">Daily</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light border-0">
+                        <div class="card-body text-center">
+                            <h6 class="fw-bold">Evening Meditation</h6>
+                            <p class="mb-1">7:00 PM - 8:00 PM</p>
+                            <small class="text-muted">Daily</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light border-0">
+                        <div class="card-body text-center">
+                            <h6 class="fw-bold">Weekend Workshop</h6>
+                            <p class="mb-1">10:00 AM - 12:00 PM</p>
+                            <small class="text-muted">Saturday & Sunday</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section py-5" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold mb-3">What Our Students Say</h2>
+                <p class="lead text-muted">Hear from our community of yoga practitioners</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-quote fs-1 mb-3"></i>
+                            <p class="card-text mb-4">"This yoga studio has completely transformed my life. The instructors are amazing and the community is so supportive. I've never felt stronger or more at peace."</p>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <img src="image/WhatsApp Image 2025-08-12 at 10.25.36 PM.jpeg" class="rounded-circle me-3" alt="Sarah" style=" width: 100px; height: 115px;">
+                                <div>
+                                    <h6 class="mb-0">Sarah Johnson</h6>
+                                    <small>Member since 2022</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-quote fs-1 mb-3"></i>
+                            <p class="card-text mb-4">"The online classes are fantastic! I can practice from anywhere and the quality is just as good as in-person sessions. Highly recommend!"</p>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <img src="image/WhatsApp Image 2025-08-12 at 10.25.36 PM (1).jpeg" class="rounded-circle me-3" alt="Mike" style=" width: 100px; height: 115px;">
+                                <div>
+                                    <h6 class="mb-0">Mike Chen</h6>
+                                    <small>Member since 2021</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-quote fs-1 mb-3"></i>
+                            <p class="card-text mb-4">"As a beginner, I was nervous to start yoga. But the instructors here made me feel welcome and helped me progress at my own pace."</p>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <img src="image/pexels-lebele-19384231.jpg" class="rounded-circle me-3" alt="Emma" style=" width: 100px; height: 115px;">
+                                <div>
+                                    <h6 class="mb-0">Emma Davis</h6>
+                                    <small>Member since 2023</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold mb-3">Get in Touch</h2>
+                <p class="lead text-muted">
+                    Ready to start your yoga journey? Contact us today and discover the transformative power of yoga.
+                </p>
+            </div>
+
+            <div class="row g-5">
+                <!-- Contact Form -->
+                <div class="col-lg-8 mx-auto">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-5">
+                            <h4 class="fw-bold mb-4">Send us a Message</h4>
+                            <form id="contactForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="firstName" class="form-label">First Name *</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="lastName" class="form-label">Last Name *</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email Address *</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="subject" class="form-label">Subject *</label>
+                                        <select class="form-select" id="subject" required>
+                                            <option value="">Choose a subject...</option>
+                                            <option value="general">General Inquiry</option>
+                                            <option value="classes">Class Information</option>
+                                            <option value="membership">Membership Plans</option>
+                                            <option value="private">Private Sessions</option>
+                                            <option value="events">Events & Workshops</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">Message *</label>
+                                        <textarea class="form-control" id="message" rows="5" placeholder="Tell us about your yoga goals, experience level, or any questions you have..." required></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="newsletter">
+                                            <label class="form-check-label" for="newsletter">
+                                                Subscribe to our newsletter for yoga tips and class updates
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary btn-lg px-5">
+                                            <i class="bi bi-send me-2"></i>Send Message
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information Cards -->
+            <div class="row g-4 mt-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-telephone-fill text-primary mb-3" style="font-size: 2.5rem;"></i>
+                            <h5 class="card-title fw-bold">Call Us</h5>
+                            <p class="card-text text-muted">
+                                Phone: (+91 6380065787) <br>
+                                Email: yogasite@gmail.com<br>                                
+                            </p>
+                            <button class="btn btn-outline-primary">Call Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-clock-fill text-primary mb-3" style="font-size: 2.5rem;"></i>
+                            <h5 class="card-title fw-bold">Studio Hours</h5>
+                            <p class="card-text text-muted">
+                                Monday - Friday: 6:00 AM - 10:00 PM<br>
+                                Saturday: 7:00 AM - 8:00 PM<br>
+                                Sunday: 8:00 AM - 6:00 PM
+                            </p>
+                            <small class="text-muted">Online classes available 24/7</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-chat-dots-fill text-primary mb-3" style="font-size: 2.5rem;"></i>
+                            <h5 class="card-title fw-bold">Live Chat</h5>
+                            <p class="card-text text-muted">
+                                Get instant answers to your questions<br>
+                                Available during business hours<br>
+                                Quick response guaranteed
+                            </p>
+                            <button class="btn btn-outline-primary">Start Chat</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="mt-5">
+                <h3 class="fw-bold text-center mb-4">Frequently Asked Questions</h3>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        Do I need experience to join yoga classes?
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Not at all! We welcome students of all levels, from complete beginners to advanced practitioners. Our instructors provide modifications for every pose to ensure everyone can participate safely and comfortably.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        What should I bring to my first class?
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Just bring yourself and comfortable clothing that allows you to move freely. We provide yoga mats, blocks, straps, and all other equipment. Don't forget to bring a water bottle to stay hydrated!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                        Can I try a class before committing to a membership?
+                                    </button>
+                                </h2>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        We offer a free trial class for new students. You can also purchase single drop-in classes to try different styles and instructors before choosing a membership plan.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Brand Section -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="yoga-icon me-2">
+                            <img src="image/1000465650.jpg" alt="logo" style="width: 45px; height: 45px;">
+                        </div>
+                        <span class="fw-bold fs-4">YOGA site</span>
+                    </div>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-light"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-twitter fs-5"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-youtube fs-5"></i></a>
+                    </div>
+                </div>
+
+
+                <!-- Newsletter -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-3">Newsletter</h6>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <small class="text-muted">We respect your privacy. Unsubscribe at any time.</small>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 YOGA site. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+     <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>  
+</body>
+</html>
